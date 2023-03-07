@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"os"
+
+	"github.com/mgukov/HeicToPng/convert"
 )
 
 func main() {
@@ -20,7 +22,7 @@ func main() {
 
 	log.Println("Convert " + heic + " to " + out)
 
-	err := ConvertHeicToJpg(heic, out)
+	err := convert.ConvertHeicToJpg(heic, out)
 	if err != nil {
 		log.Fatal(err)
 	}
