@@ -1,3 +1,6 @@
 *.png
 *.heic
 go.sum
+
+res/
+bin/
