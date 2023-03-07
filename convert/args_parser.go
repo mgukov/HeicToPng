@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"os"
 	"path/filepath"
 	"strings"
 )
@@ -35,13 +36,13 @@ func ProcessArgs(args []string) {
 	if first == "-f" {
 		err := processForlderModeArgs(args[1:])
 		if err != nil {
-			log.Fatal("Unagle to convert images")
+			log.Fatalf("Unagle to convert images: %s", err.Error())
 		}
 	} else {
 		err := processSingleFileModeArgs(args)
 
 		if err != nil {
-			log.Fatal("Unagle to convert image")
+			log.Fatalf("Unagle to convert image: %s", err.Error())
 		}
 	}
 }
@@ -74,6 +75,11 @@ func processForlderModeArgs(args []string) error {
 
 	if len(args) > 1 {
 		out = args[1]
+	}
+
+	err := os.MkdirAll(out, os.ModePerm)
+	if err != nil {
+		return err
 	}
 
 	err, tasks := getTasks(in, out)
