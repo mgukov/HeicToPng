@@ -20,7 +20,7 @@ func main() {
 
 	log.Println("Convert " + heic + " to " + out)
 
-	err := convertHeicToJpg(heic, out)
+	err := ConvertHeicToJpg(heic, out)
 	if err != nil {
 		log.Fatal(err)
 	}

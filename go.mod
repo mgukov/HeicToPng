@@ -1,4 +1,4 @@
-module com/mgukov/imageconverter
+module github.com/mgukov/HeicToPng
 
 go 1.18
 

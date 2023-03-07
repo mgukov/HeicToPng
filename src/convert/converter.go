@@ -1,4 +1,4 @@
-package main
+package convert
 
 import (
 	"image/jpeg"
@@ -16,7 +16,7 @@ type writerSkipper struct {
 
 // convertHeicToJpg takes in an input file (of heic format) and converts
 // it to a jpeg format, named as the output parameters.
-func convertHeicToJpg(input, output string) error {
+func ConvertHeicToJpg(input, output string) error {
 
 	fileInput, err := os.Open(input)
 	if err != nil {
